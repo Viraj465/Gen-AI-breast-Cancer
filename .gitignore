@@ -1,0 +1,6 @@
+venvpy
+.env
+segnet_model.h5
+CLASSIFY.pkl
+encoder.pkl
+BIRAD.pkl
