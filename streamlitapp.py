@@ -32,12 +32,17 @@ def preprocess_image(image, target_size = (224, 224)):
     return np.expand_dims(image, axis = 0)
 
 def models():
-    CAE_model = load_model("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\autoencoder_model.h5")
-    SEGNET_model = load_model("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\segnet_model.h5")
-    birads_model = joblib.load("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\birads_regressor_model.pkl")
-    class_model = joblib.load("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\cancer_classification_model.pkl")
+    # CAE_model = load_model("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\autoencoder_model.h5")
+    # SEGNET_model = load_model("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\segnet_model.h5")
+    # birads_model = joblib.load("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\birads_regressor_model.pkl")
+    # class_model = joblib.load("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\cancer_classification_model.pkl")
+    CAE_model = load_model(os.path.join(os.getcwd(),"autoencoder_model.h5"))
+    SEGNET_model = load_model(os.path.join(os.getcwd(),"segnet_model.h5"))
+    birads_model = joblib.load(os.path.join(os.getcwd(),"birads_regressor_model.pkl"))
+    class_model = joblib.load(os.path.join(os.getcwd(),"cancer_classification_model.pkl"))
 
-    ohe_encoder = joblib.load("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\cat_encoder1.pkl")
+    ohe_encoder = joblib.load(os.path.join(os.getcwd(),"cat_encoder1.pkl"))
+    # ohe_encoder = joblib.load("C:\\Users\\Viraj Sawant\\Desktop\\GENAICANCER\\cat_encoder1.pkl")
 
     return CAE_model, SEGNET_model, birads_model, class_model, ohe_encoder
 
